@@ -1,0 +1,57 @@
+spring:
+    application:
+        name: demo
+    mail:
+        host: smtp.163.com   # 设置邮箱主机
+        username: nyww754977826@163.com
+        password: wysqm19950611
+        port: 465
+        properties:
+            mail:
+                smtp:
+                    ssl:
+                        enable: true
+                        socketFactory:
+                            fallback: false
+                            class: com.demo.mail.service.MailSSLSocketFactory
+                    auth: true  # 设置是否需要认证，如果为true,那么用户名和密码就必须的
+                    starttls:
+                        # STARTTLS[1]  是对纯文本通信协议的扩展。它提供一种方式将纯文本连接升级为加密连接（TLS或SSL），而不是另外使用一个端口作加密通信。
+                        enable: true
+                        required: true
+    datasource:
+        url: jdbc:mysql://47.111.112.117:3306/orcl
+        username: nie
+        password: qwer
+        driver-class-name: com.mysql.jdbc.Driver
+        jpa:
+            hibernate:
+                ddl-auto: update
+                naming:
+                    physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+            show-sql: true
+    jpa:
+        hibernate:
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+mail:
+    from: ${spring.mail.username}
+    to: 754977826@qq.com
+log:
+    path: '/root/app/log/'
+server:
+    port: 80
+    #tomcat:
+    #    max-threads: 800
+    #    accept-count: 30000
+    #    min-spare-threads: 20
+    #    max-connections: 30000
+    #servlet-path: /*
+    #ssl:
+    #    key-store: D:/tomcat.keystore
+    #    key-store-type: JKS
+    #    key-alias: tomcat
+    #    key-store-password: 123456
+document:
+    path: '/root/app/document/'
