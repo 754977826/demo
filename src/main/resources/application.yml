@@ -20,7 +20,7 @@ spring:
                         enable: true
                         required: true
     datasource:
-        url: jdbc:mysql://47.111.112.117:3306/orcl
+        url: jdbc:mysql://47.111.112.117:3306/orcl?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false
         username: nie
         password: qwer
         driver-class-name: com.mysql.jdbc.Driver
@@ -54,4 +54,4 @@ server:
     #    key-alias: tomcat
     #    key-store-password: 123456
 document:
-    path: '/root/app/document/'
+    path: 'D:/root/app/document/'

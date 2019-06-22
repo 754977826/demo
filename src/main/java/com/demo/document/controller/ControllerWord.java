@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author nieyawei
@@ -39,6 +40,19 @@ public class ControllerWord {
         /*String fileName = file.getOriginalFilename();
         InputStream in = file.getInputStream();*/
         return serviceDocument.saveDocumentFile(file);
+
+    }
+
+    @PostMapping(value = "getDocumentList")
+    public JSONObject getDocumentList() {
+
+        /*String fileName = file.getOriginalFilename();
+        InputStream in = file.getInputStream();*/
+        List<DocumentBean> list = serviceDocument.getDocList();
+        JSONObject json = new JSONObject();
+        json.put("Rows", list);
+        json.put("Total", list.size());
+        return json;
 
     }
 }
